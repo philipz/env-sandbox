@@ -29,6 +29,8 @@ jobs:
     - name: Debug
       run: |
         echo $PATH
+        ls ~/aws
+        aws-iam-authenticator
 
     # Apply Terraform
 
