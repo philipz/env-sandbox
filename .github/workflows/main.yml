@@ -11,6 +11,8 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
  
+    # Steps
+
     steps:
     - uses: actions/checkout@v2
       
@@ -24,6 +26,31 @@ jobs:
         chmod +x ~/aws/aws-iam-authenticator
         echo "::add-path::~/aws"
 
+    # Apply Terraform
+
     - uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 0.12.19
+        
+    - name: Terraform fmt
+      run: terraform fmt
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Validate
+      run: terraform validate -no-color
+
+    - name: Terraform Plan
+      run: terraform plan -no-color
+    
+    - name: Terraform Apply
+      run: terraform apply -no-color -auto-approve 
+
+    # Comment
+    - name: Upload kubeconfig file
+      uses: actions/upload-artifact@v2
+      with:
+        name: kubeconfig
+        path: kubeconfig
+  
