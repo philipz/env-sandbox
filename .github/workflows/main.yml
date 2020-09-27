@@ -25,6 +25,10 @@ jobs:
         1.16.8/2020-04-16/bin/linux/amd64/aws-iam-authenticator"
         chmod +x ~/aws/aws-iam-authenticator
         echo "::add-path::~/aws"
+        
+    - name: Debug
+      run: |
+        echo $PATH
 
     # Apply Terraform
 
