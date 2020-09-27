@@ -13,7 +13,6 @@ locals {
 }
 
 # Network Configuration
-
 module "aws-network" {
   source = "github.com/mitraman/module-aws-network"
 
