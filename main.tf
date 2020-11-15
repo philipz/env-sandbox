@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "msur-oct"
+    bucket = "msur-oct" # make sure to change this to be unique to you (globally)
     key    = "terraform-env"
     region = "eu-west-2"
   }
