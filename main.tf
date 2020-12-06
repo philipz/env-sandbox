@@ -1,14 +1,14 @@
 terraform {
   backend "s3" {
-    bucket = "msur-oct" # make sure to change this to be unique to you (globally)
+    bucket = "ms-philipz" # make sure to change this to be unique to you (globally)
     key    = "terraform-env"
-    region = "eu-west-2"
+    region = "ap-northeast-1"
   }
 }
 
 locals {
   env_name         = "sandbox"
-  aws_region       = "eu-west-2"
+  aws_region       = "ap-northeast-1"
   k8s_cluster_name = "ms-cluster"
 }
 
